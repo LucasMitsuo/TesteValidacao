@@ -1,0 +1,36 @@
+﻿@model  TesteValidacao.Models.ClassCliente
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Formulário</h2>
+
+@using (Html.BeginForm("Valida", "Cliente", FormMethod.Post, new { @class = "" }))
+{
+    @Html.ValidationSummary(true, "Algo de errado. Por favor, faça correção");
+
+    @Html.LabelFor(model => model.cli_id)       
+    @Html.TextBoxFor(model => model.cli_id, new { placeholder = "Entre com o código" })
+    @Html.ValidationMessageFor(model => model.cli_id)
+    <br />
+    @Html.LabelFor(model => model.nome)
+    @Html.TextBoxFor(model => model.nome, new { placeholder = "Entre com o nome"})
+    @Html.ValidationMessageFor(model => model.nome)
+    <br />
+    @Html.LabelFor(model => model.idade)
+    @Html.TextBoxFor(model => model.idade, new { placeholder = "Entre com a idade" })
+    @Html.ValidationMessageFor(model => model.idade)
+    <br />
+    @Html.LabelFor(model => model.email)
+    @Html.TextBoxFor(model => model.email, new {placeholder = "Entre com o email"})
+    @Html.ValidationMessageFor(model => model.email)
+    <br />
+    @Html.LabelFor(model => model.preco)
+    @Html.TextBoxFor(model => model.preco, new { placeholder = "Entre com o preço"})
+    @Html.ValidationMessageFor(model => model.preco)
+        
+
+    <input type="submit" value="Validar"  />
+}
+
